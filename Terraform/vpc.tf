@@ -43,10 +43,6 @@ resource "aws_internet_gateway" "msa_igw" {
     Name = "msa_igw"
   }
 }
-resource "aws_internet_gateway_attachment" "msa_igw_attachment" {
-  internet_gateway_id = aws_internet_gateway.msa_igw.id
-  vpc_id              = aws_vpc.msa_vpc.id
-}
 
 
 resource "aws_eip" "msa_nat_eip" {

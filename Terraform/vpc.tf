@@ -50,7 +50,7 @@ resource "aws_internet_gateway_attachment" "msa_igw_attachment" {
 
 
 resource "aws_eip" "msa_nat_eip" {
-  vpc = true
+  domain = "vpc"
 
   tags = {
     Name = "msa_nat_eip"
@@ -112,6 +112,6 @@ resource "aws_route_table_association" "private_subnet_a_association" {
   route_table_id = aws_route_table.msa_private_rtb_a.id
 }
 resource "aws_route_table_association" "private_subnet_b_association" {
-  subnet_id      = aws_subnet.msa_private_subnet_b
+  subnet_id      = aws_subnet.msa_private_subnet_b.id
   route_table_id = aws_route_table.msa_private_rtb_b.id
 }

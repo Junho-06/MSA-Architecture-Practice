@@ -8,7 +8,7 @@ import (
 
 func main() {
 	handler := http.HandlerFunc(handleRequest)
-	http.Handle("/example", handler)
+	http.Handle("/healthz", handler)
 	http.ListenAndServe(":8080", nil)
 }
 

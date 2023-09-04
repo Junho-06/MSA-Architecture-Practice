@@ -18,14 +18,21 @@ terraform {
   }
 }
 
-provider "helm" {
-  kubernetes {
-    host                   = aws_eks_cluster.msa_eks_cluster.endpoint
-    cluster_ca_certificate = aws_eks_cluster.msa_eks_cluster.cluster_ca_certificate
-    token                  = aws_eks_cluster.msa_eks_cluster.cluster_auth_token
-  }
-}
 
 provider "aws" {
   region = var.region
+}
+
+provider "kubernetes" {
+  host                   = data.aws_eks_cluster.cluster.endpoint
+  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
+  token                  = data.aws_eks_cluster_auth.cluster.token
+}
+
+provider "helm" {
+  kubernetes {
+    host                   = data.aws_eks_cluster.cluster.endpoint
+    cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority[0].data)
+    token                  = data.aws_eks_cluster_auth.cluster.token
+  }
 }

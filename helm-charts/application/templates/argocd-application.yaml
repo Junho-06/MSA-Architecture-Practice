@@ -1,0 +1,41 @@
+{{- range .Values.projects }}
+{{ $projectName := .name }}
+{{- range .applications }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .name }}
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: {{ $projectName }}
+  source:
+    path: {{ .source.path }}
+    repoURL: {{ .source.repoURL }}
+    targetRevision: {{ .source.rtargetRevision }}
+  syncPolicy:
+    automated:
+      prune: {{ .syncPolicy.prune }}
+      selfHeal: {{ .syncPolicy.selfHeal }}
+{{- end }}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: {{ $projectName }}
+  namespace: argocd
+  # Finalizer that ensures that project is not deleted until it is not referenced by any application
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  sourceRepos:
+  - '*'
+  destinations:
+  - namespace: '*'
+    server: '*'
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+{{- end }}

@@ -8,8 +8,8 @@ resource "aws_vpc" "msa_vpc" {
 
 
 resource "aws_subnet" "msa_public_subnet" {
-  vpc_id     = aws_vpc.msa_vpc.id
-  cidr_block = "10.0.1.0/24"
+  vpc_id            = aws_vpc.msa_vpc.id
+  cidr_block        = "10.0.1.0/24"
   availability_zone = "ap-northeast-2a"
 
   tags = {
@@ -17,8 +17,8 @@ resource "aws_subnet" "msa_public_subnet" {
   }
 }
 resource "aws_subnet" "msa_private_subnet_a" {
-  vpc_id     = aws_vpc.msa_vpc.id
-  cidr_block = "10.0.2.0/24"
+  vpc_id            = aws_vpc.msa_vpc.id
+  cidr_block        = "10.0.2.0/24"
   availability_zone = "ap-northeast-2a"
 
   tags = {
@@ -26,8 +26,8 @@ resource "aws_subnet" "msa_private_subnet_a" {
   }
 }
 resource "aws_subnet" "msa_private_subnet_b" {
-  vpc_id     = aws_vpc.msa_vpc.id
-  cidr_block = "10.0.3.0/24"
+  vpc_id            = aws_vpc.msa_vpc.id
+  cidr_block        = "10.0.3.0/24"
   availability_zone = "ap-northeast-2b"
 
   tags = {
@@ -54,11 +54,11 @@ resource "aws_eip" "msa_nat_eip" {
 }
 resource "aws_nat_gateway" "msa_nat" {
   allocation_id = aws_eip.msa_nat_eip.id
-  subnet_id = aws_subnet.msa_public_subnet.id
+  subnet_id     = aws_subnet.msa_public_subnet.id
 
   tags = {
     Name = "msa_nat"
-    }
+  }
 }
 
 

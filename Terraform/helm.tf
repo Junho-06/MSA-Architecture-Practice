@@ -11,7 +11,7 @@ resource "helm_release" "argo-cd" {
   repository = local.helm-repository
   chart      = local.argocd-name
   version    = local.argocd-version
-  
+
   namespace        = local.argocd-namespace
   create_namespace = true
 }

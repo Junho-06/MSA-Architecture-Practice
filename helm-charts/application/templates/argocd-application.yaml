@@ -14,7 +14,7 @@ spec:
   source:
     path: {{ .source.path }}
     repoURL: {{ .source.repoURL }}
-    targetRevision: {{ .source.rtargetRevision }}
+    targetRevision: {{ .source.targetRevision }}
   syncPolicy:
     automated:
       prune: {{ .syncPolicy.prune }}

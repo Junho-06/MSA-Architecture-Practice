@@ -1,0 +1,47 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: '{{ .Values.spec.project }}-servers'
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: {{ .Values.spec.source.repoURL }}
+      revision: HEAD
+      files:
+      - path: "GitOps/charts/resource/**/resource.yaml"
+  template:
+    metadata:
+      name: '{{`{{ config.service_name }}`}}-{{`{{ config.type }}`}}'
+      labels:
+        project: '{{`{{ config.service_name }}`}}'
+        type: '{{`{{ config.type }}`}}'
+        layer: server
+    spec:
+      project: {{ .Values.spec.project }}
+      destination:
+        server: {{ .Values.spec.destination.server }}
+        namespace: {{ .Values.spec.namespace }}
+      source:
+        path: {{ .Values.spec.source.serverPath }}
+        repoURL: {{ .Values.spec.source.repoURL }}
+        targetRevision: {{ .Values.spec.source.targetRevision }}
+        helm:
+          values: |-
+            name: '{{`{{ config.service_name }}`}}'
+            host: '{{ .Values.spec.host }}'
+            imageRegistry: '{{ .Values.spec.source.imageRegistry }}'
+            imageTag: '{{`{{ config.imageTag }}`}}'
+            containerPort: '{{`{{ config.containerPort }}`}}'
+            prefix: '{{`{{ config.prefix }}`}}'
+            type: '{{`{{ config.type }}`}}'
+            replicas: {{`{{ config.replicas }}`}}
+            volume:
+              name: '{{`{{ config.volume.name }}`}}'
+              mountPath: '{{`{{ config.volume.mountPath }}`}}'
+              secretName: '{{`{{ config.volume.secretName }}`}}'
+            serviceAccount: '{{`{{ config.serviceAccount }}`}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true

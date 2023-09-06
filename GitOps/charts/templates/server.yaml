@@ -12,10 +12,9 @@ spec:
       - path: "GitOps/charts/resource/**/resource.yaml"
   template:
     metadata:
-      name: '{{`{{ config.service_name }}`}}-{{`{{ config.type }}`}}'
+      name: '{{`{{ config.service_name }}`}}'
       labels:
         project: '{{`{{ config.service_name }}`}}'
-        type: '{{`{{ config.type }}`}}'
         layer: server
     spec:
       project: {{ .Values.spec.project }}
@@ -34,7 +33,6 @@ spec:
             imageTag: '{{`{{ config.imageTag }}`}}'
             containerPort: '{{`{{ config.containerPort }}`}}'
             prefix: '{{`{{ config.prefix }}`}}'
-            type: '{{`{{ config.type }}`}}'
             replicas: {{`{{ config.replicas }}`}}
             volume:
               name: '{{`{{ config.volume.name }}`}}'

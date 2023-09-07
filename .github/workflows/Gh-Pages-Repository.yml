@@ -30,6 +30,7 @@ jobs:
       - name: Add helm repo
         run: |
           helm repo add argo https://argoproj.github.io/argo-helm
+          helm repo add dandydeveloper https://dandydeveloper.github.io/charts/
 
       - name: Find Changed Helm Charts
         id: find-changed-charts

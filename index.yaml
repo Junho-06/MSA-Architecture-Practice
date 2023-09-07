@@ -3,12 +3,12 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-09-07T07:25:08.306589528Z"
-    description: applications
-    digest: 00b008db86358864c274299224514140b24ab4428bfdeb838e0216661fbc463a
+    created: "2023-09-07T23:15:02.056031637Z"
+    description: application
+    digest: 40f23fd92428cffbb963daa9927034c84cb05823a3a6768ffc25d004cd5f9096
     name: application
     type: application
     urls:
     - application-0.1.0.tgz
     version: 0.1.0
-generated: "2023-09-07T07:25:08.306121722Z"
+generated: "2023-09-07T23:15:02.054852038Z"

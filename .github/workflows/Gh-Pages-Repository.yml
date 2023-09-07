@@ -40,11 +40,10 @@ jobs:
   
       - name: Build and Package Helm Charts
         run: |
-          for chart in ${{ steps.find-changed-charts.outputs.changed_charts }}; do
-            chart_dir="helm-charts/${chart}"
-            helm dependency build $chart_dir
-            helm package $chart_dir
-          done
+          while IFS=$'\n' read -r package_directory; do
+              helm dependency build $package_directory
+              helm package $package_directory
+          done <<< "${{ steps.find-changed-charts.outputs.changed_charts }}"
 
       - name: checkout gh-pages branch and helm index
         run: | 

@@ -7,6 +7,10 @@ on:
     branches: [ "main" ]
 
   workflow_dispatch:
+
+  repository_dispatch:
+    types: 
+      - Go-CI
     
 permissions: read-all
 
@@ -49,3 +53,41 @@ jobs:
         cd ${{ env.working_directory }}
         docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+
+    - name: Set Payload Aliases
+      id: set_payload
+      run: |
+        echo "service_name=${{ github.event.client_payload.service_name }}" >> $GITHUB_ENV
+        echo "service_prefix=${{ github.event.client_payload.service_prefix }}" >> $GITHUB_ENV
+        echo "image_tag=${{ github.event.client_payload.image_tag }}" >> $GITHUB_ENV
+        echo "service_port=${{ github.event.client_payload.service_port }}" >> $GITHUB_ENV
+
+    - name: Pull Commit 
+      run: git pull
+
+    - name: Use yq to modify Config file
+      working-directory: ${{ github.workspace}}/GitOps
+      run: |
+        prefix='/go'
+        if [ -n "${{ env.service_prefix }}" ] && [ "${{ env.service_prefix }}" != "null" ]; then
+          prefix='.config.prefix = "${{ env.service_prefix }}"'
+        else
+          prefix='.config.prefix = null'
+        fi
+
+        yq eval -i ".config.service_name = \"${{ env.service_name }}\" | \
+                  .config.imageTag = \"${{ env.image_tag }}\" | \
+                  .config.containerPort = ${{ env.service_port }} | \
+                  $prefix" -i GitOps/charts/resource/go/resource.yaml
+      
+    - name: Commit The New Image Reference
+      if: ${{ env.service_name && env.service_prefix && env.image_tag}}
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: "update :: ${{ env.service_name }}: Deploy new image ${{ env.image_tag }}"
+        branch: main
+        commit_options: '--no-verify --signoff'
+        repository: .
+        commit_user_name: Junho-06
+        commit_user_email: ${{ secrets.commit_user_email }}
+        commit_author: Junho-06 <${{ secrets.commit_user_email }}>

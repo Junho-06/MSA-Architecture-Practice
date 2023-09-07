@@ -1,0 +1,58 @@
+name: Chart-Repository
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "helm-charts/**"
+
+  workflow_dispatch:
+
+permissions: read-all
+
+jobs:
+  publish:
+    permissions:
+      contents: write
+      packages: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.5.3
+        with:
+          fetch-depth: 0
+
+      - name: Install Helm
+        uses: azure/setup-helm@v3.5
+        with:
+          version: v3.10.1
+
+      - name: Add helm repo
+        run: |
+          helm repo add argo https://argoproj.github.io/argo-helm
+
+      - name: Helm build
+        run: |
+          changed_helm_packages=$(git diff --name-only HEAD~1 | grep '^charts/' | cut -d/ -f1-2)
+
+          while IFS=$'\n' read -r package_directory; do
+              helm dependency build $package_directory
+              helm package $package_directory
+          done <<< "$changed_helm_packages"
+
+      - name: checkout gh-pages branch and helm index
+        run: | 
+          git checkout gh-pages --
+          helm repo index .
+
+      - name: Commit The Chart Realease
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: ${{ github.event.head_commit.message }}
+          commit_options: '--no-verify --signoff'
+          branch: gh-pages
+          skip_checkout: true
+          repository: .
+          commit_user_name: Junho-06
+          commit_user_email: ${{ secrets.commit_user_email }}
+          commit_author: Junho-06 <${{ secrets.commit_user_email }}>

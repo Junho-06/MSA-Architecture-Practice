@@ -31,14 +31,20 @@ jobs:
         run: |
           helm repo add argo https://argoproj.github.io/argo-helm
 
-      - name: Helm build
+      - name: Find Changed Helm Charts
+        id: find-changed-charts
         run: |
-          changed_charts=$(git diff --name-only HEAD~1 | grep '^helm-charts/' | cut -d/ -f2 | sort -u)=$(git diff --name-only HEAD~1 | grep '^helm-charts/' | cut -d/ -f2 | sort -u)
-
-          while IFS=$'\n' read -r package_directory; do
-              helm dependency build $package_directory
-              helm package $package_directory
-          done <<< "$changed_helm_packages"
+          changed_charts=$(git diff --name-only HEAD~1 | grep '^helm-charts/' | cut -d/ -f2 | sort -u)
+          echo "::set-output name=changed_charts::${changed_charts}"
+        shell: bash
+  
+      - name: Build and Package Helm Charts
+        run: |
+          for chart in ${{ steps.find-changed-charts.outputs.changed_charts }}; do
+            chart_dir="helm-charts/${chart}"
+            helm dependency build $chart_dir
+            helm package $chart_dir
+          done
 
       - name: checkout gh-pages branch and helm index
         run: | 

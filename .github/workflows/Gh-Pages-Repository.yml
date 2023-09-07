@@ -1,4 +1,4 @@
-name: Chart-Repository
+name: gh-pages-Repository
 on:
   push:
     branches:

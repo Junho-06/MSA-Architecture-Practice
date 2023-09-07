@@ -1,5 +1,5 @@
 locals {
-  helm-repository = "https://junho-06.github.io/MSA-Architecture-Practice/helm-charts"
+  helm-repository = "https://junho-06.github.io/MSA-Architecture-Practice"
 
   argocd-name      = "argo-cd"
   argocd-version   = "5.45.0"

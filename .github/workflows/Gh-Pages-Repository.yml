@@ -33,7 +33,7 @@ jobs:
 
       - name: Helm build
         run: |
-          changed_helm_packages=$(git diff --name-only HEAD~1 | grep '^charts/' | cut -d/ -f1-2)
+          changed_charts=$(git diff --name-only HEAD~1 | grep '^helm-charts/' | cut -d/ -f2 | sort -u)=$(git diff --name-only HEAD~1 | grep '^helm-charts/' | cut -d/ -f2 | sort -u)
 
           while IFS=$'\n' read -r package_directory; do
               helm dependency build $package_directory

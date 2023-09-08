@@ -63,3 +63,9 @@ jobs:
           commit_user_name: Junho-06
           commit_user_email: ${{ secrets.commit_user_email }}
           commit_author: Junho-06 <${{ secrets.commit_user_email }}>
+      
+      - name: Push to gh-pages branch
+        run: |
+          git push origin gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.USER_TOKEN }}

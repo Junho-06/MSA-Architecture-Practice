@@ -53,6 +53,7 @@ jobs:
           ls
           git checkout gh-pages --
           helm repo index .
+          ls
 
       - name: Commit The Chart Realease
         uses: stefanzweifel/git-auto-commit-action@v4

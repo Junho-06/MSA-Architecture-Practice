@@ -45,11 +45,12 @@ jobs:
             app_name=$(basename $chart_directory)
             helm dependency build $chart_directory
             helm package $chart_directory
-            
+            ls
           done <<< "${{ steps.find-changed-charts.outputs.changed_charts }}"
 
       - name: checkout gh-pages branch and helm index
         run: | 
+          ls
           git checkout gh-pages --
           helm repo index .
 

@@ -3,9 +3,9 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-09-08T05:16:04.634380633Z"
-    description: applications
-    digest: d1d1e2ac01c9714d3aa0a8d6b3096efb2b0ceccc3b83e13a9ca30e787055e5b0
+    created: "2023-09-08T05:44:00.33682123Z"
+    description: application
+    digest: 44bb4868283c4b1678fc21e30453d838eb86c358bb29546d009cfcd89ed63397
     name: application
     type: application
     urls:
@@ -23,15 +23,15 @@ entries:
         url: https://argoproj.github.io/argo-helm/pgp_keys.asc
     apiVersion: v2
     appVersion: v2.8.2
-    created: "2023-09-08T05:16:04.649942669Z"
+    created: "2023-09-08T05:44:00.353988472Z"
     dependencies:
     - condition: redis-ha.enabled
       name: redis-ha
       repository: https://dandydeveloper.github.io/charts/
       version: 4.23.0
-    description: A Helm chart for ArgoCD, a declarative, GitOps continuous delivery
+    description: A Helm chart for Argo CD, a declarative, GitOps continuous delivery
       tool for Kubernetes.
-    digest: bab8e313bf7668eec473f90e3bb15b2b446e23cf975151f6ee8476e0e8771763
+    digest: 27ce9956038eea86c11d6d41bd2cd52d30df3bd9b6d0b3606dd1de31142f6780
     home: https://github.com/argoproj/argo-helm
     icon: https://argo-cd.readthedocs.io/en/stable/assets/logo.png
     keywords:
@@ -49,4 +49,4 @@ entries:
     urls:
     - argo-cd-5.45.0.tgz
     version: 5.45.0
-generated: "2023-09-08T05:16:04.63404043Z"
+generated: "2023-09-08T05:44:00.336436322Z"

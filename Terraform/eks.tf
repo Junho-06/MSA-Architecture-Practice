@@ -30,7 +30,8 @@ resource "aws_eks_cluster" "msa_eks_cluster" {
 
   vpc_config {
     subnet_ids = [
-      aws_subnet.msa_public_subnet.id
+      aws_subnet.msa_public_subnet_a.id,
+      aws_subnet.msa_public_subnet_b.id
     ]
   }
 

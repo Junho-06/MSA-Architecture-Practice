@@ -7,18 +7,27 @@ resource "aws_vpc" "msa_vpc" {
 }
 
 
-resource "aws_subnet" "msa_public_subnet" {
+resource "aws_subnet" "msa_public_subnet_a" {
   vpc_id            = aws_vpc.msa_vpc.id
   cidr_block        = "10.0.1.0/24"
   availability_zone = "ap-northeast-2a"
 
   tags = {
-    Name = "msa_public_subnet"
+    Name = "msa_public_subnet_a"
+  }
+}
+resource "aws_subnet" "msa_public_subnet_b" {
+  vpc_id            = aws_vpc.msa_vpc.id
+  cidr_block        = "10.0.2.0/24"
+  availability_zone = "ap-northeast-2b"
+
+  tags = {
+    Name = "msa_public_subnet_b"
   }
 }
 resource "aws_subnet" "msa_private_subnet_a" {
   vpc_id            = aws_vpc.msa_vpc.id
-  cidr_block        = "10.0.2.0/24"
+  cidr_block        = "10.0.3.0/24"
   availability_zone = "ap-northeast-2a"
 
   tags = {
@@ -27,7 +36,7 @@ resource "aws_subnet" "msa_private_subnet_a" {
 }
 resource "aws_subnet" "msa_private_subnet_b" {
   vpc_id            = aws_vpc.msa_vpc.id
-  cidr_block        = "10.0.3.0/24"
+  cidr_block        = "10.0.4.0/24"
   availability_zone = "ap-northeast-2b"
 
   tags = {
@@ -99,8 +108,12 @@ resource "aws_route_table" "msa_private_rtb_b" {
   }
 }
 
-resource "aws_route_table_association" "public_subnet_association" {
-  subnet_id      = aws_subnet.msa_public_subnet.id
+resource "aws_route_table_association" "public_subnet_a_association" {
+  subnet_id      = aws_subnet.msa_public_subnet_a.id
+  route_table_id = aws_route_table.msa_public_rtb.id
+}
+resource "aws_route_table_association" "public_subnet_b_association" {
+  subnet_id      = aws_subnet.msa_public_subnet_b.id
   route_table_id = aws_route_table.msa_public_rtb.id
 }
 resource "aws_route_table_association" "private_subnet_a_association" {

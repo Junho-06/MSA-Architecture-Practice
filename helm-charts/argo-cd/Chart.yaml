@@ -1,7 +1,7 @@
 apiVersion: v2
 appVersion: v2.3.4
 name: argo-cd
-description: study argocd chart
+description: study argo-cd chart
 version: 0.1.0
 dependencies:
 - name: argo-cd

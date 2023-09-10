@@ -63,7 +63,7 @@ resource "aws_eip" "msa_nat_eip" {
 }
 resource "aws_nat_gateway" "msa_nat" {
   allocation_id = aws_eip.msa_nat_eip.id
-  subnet_id     = aws_subnet.msa_public_subnet.id
+  subnet_id     = aws_subnet.msa_public_subnet_a.id
 
   tags = {
     Name = "msa_nat"

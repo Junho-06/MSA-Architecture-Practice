@@ -5,8 +5,8 @@ locals {
   argocd-version   = "5.45.0"
   argocd-namespace = "argocd"
 
-  application-name = "application"
-  application-version = "0.1.0"
+  application-name      = "application"
+  application-version   = "0.1.0"
   application-namespace = "default"
 }
 
@@ -21,10 +21,11 @@ resource "helm_release" "argo-cd" {
 }
 
 resource "helm_release" "application" {
-  name = local.application-name
+  name       = local.application-name
   repository = local.helm-repository
-  chart = local.application-name
-  version = local.application-version
+  chart      = local.application-name
+  version    = local.application-version
 
-  namespace = local.application-namespace
+  namespace        = local.application-namespace
+  create_namespace = true
 }

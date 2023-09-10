@@ -3,26 +3,26 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-09-10T14:17:40.560195628Z"
-    description: argocd study application
-    digest: 26d70bdf397d80a3a2f225481b1b48adcc51f7a1917189c434bf15dcbe0fb35e
+    created: "2023-09-10T14:46:47.989260682Z"
+    description: argo-cd study application
+    digest: efa457491e8c6b24675435c72bb53970ed2124bb412306c12621153fd7511695
     name: application
     type: application
     urls:
     - application-0.1.0.tgz
     version: 0.1.0
-  argocd:
+  argo-cd:
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-09-10T14:17:40.576679283Z"
+    created: "2023-09-10T14:46:48.003163587Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
       version: 5.45.0
-    description: study argocd chart
-    digest: 987eb41d59f724194fce88b01afd51b00bfba084d7b04500b90516c4fd2d3f3c
-    name: argocd
+    description: study argo-cd chart
+    digest: 5c142357f544d921e4a30faac8f37b3ec37aba40386b8d3317ddb0fc48877ae5
+    name: argo-cd
     urls:
-    - argocd-0.1.0.tgz
+    - argo-cd-0.1.0.tgz
     version: 0.1.0
-generated: "2023-09-10T14:17:40.55971712Z"
+generated: "2023-09-10T14:46:47.988885379Z"

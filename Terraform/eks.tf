@@ -22,20 +22,20 @@ resource "aws_iam_role_policy_attachment" "attach_AmazonEKSVPCResourceController
 }
 
 
-# resource "aws_eks_cluster" "msa_eks_cluster" {
-#   name     = var.cluster_name
-#   role_arn = aws_iam_role.cluster_role.arn
+resource "aws_eks_cluster" "msa_eks_cluster" {
+  name     = var.cluster_name
+  role_arn = aws_iam_role.cluster_role.arn
 
-#   enabled_cluster_log_types = ["api", "audit", "controllerManager"]
+  enabled_cluster_log_types = ["api", "audit", "controllerManager"]
 
-#   vpc_config {
-#     subnet_ids = [
-#       aws_subnet.msa_public_subnet.id
-#     ]
-#   }
+  vpc_config {
+    subnet_ids = [
+      aws_subnet.msa_public_subnet.id
+    ]
+  }
 
-#   depends_on = [
-#     aws_iam_role_policy_attachment.attach_AmazonEKSClusterPolicy_to_Role,
-#     aws_iam_role_policy_attachment.attach_AmazonEKSVPCResourceController_to_Role
-#   ]
-# }
+  depends_on = [
+    aws_iam_role_policy_attachment.attach_AmazonEKSClusterPolicy_to_Role,
+    aws_iam_role_policy_attachment.attach_AmazonEKSVPCResourceController_to_Role
+  ]
+}

@@ -27,5 +27,5 @@ resource "helm_release" "application" {
   version    = local.application-version
 
   namespace        = local.application-namespace
-  create_namespace = true
+  #create_namespace = true
 }

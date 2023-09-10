@@ -3,50 +3,26 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-09-08T05:51:51.936719922Z"
+    created: "2023-09-10T14:17:40.560195628Z"
     description: argocd study application
-    digest: 9836dbf7c750d10bc5ca2384fc745c51b3115fbabf4f87e3dbf034013616f5db
+    digest: 26d70bdf397d80a3a2f225481b1b48adcc51f7a1917189c434bf15dcbe0fb35e
     name: application
     type: application
     urls:
     - application-0.1.0.tgz
     version: 0.1.0
-  argo-cd:
-  - annotations:
-      artifacthub.io/changes: |
-        - kind: removed
-          description: Option apiVersionOverrides.autoscaling as v2 is now GA
-        - kind: removed
-          description: Codebase for autoscaling/v1 API
-      artifacthub.io/signKey: |
-        fingerprint: 2B8F22F57260EFA67BE1C5824B11F800CD9D2252
-        url: https://argoproj.github.io/argo-helm/pgp_keys.asc
-    apiVersion: v2
-    appVersion: v2.8.2
-    created: "2023-09-08T05:51:51.954504639Z"
+  argocd:
+  - apiVersion: v2
+    appVersion: v2.3.4
+    created: "2023-09-10T14:17:40.576679283Z"
     dependencies:
-    - condition: redis-ha.enabled
-      name: redis-ha
-      repository: https://dandydeveloper.github.io/charts/
-      version: 4.23.0
-    description: A Helm chart for Argo CD, a declarative, GitOps continuous delivery
-      tool for Kubernetes.
-    digest: 5cd995c23841447299795e70b2f4edd3b2aef393974be6f489f4567bdc6a2557
-    home: https://github.com/argoproj/argo-helm
-    icon: https://argo-cd.readthedocs.io/en/stable/assets/logo.png
-    keywords:
-    - argoproj
-    - argocd
-    - gitops
-    kubeVersion: '>=1.23.0-0'
-    maintainers:
-    - name: argoproj
-      url: https://argoproj.github.io/
-    name: argo-cd
-    sources:
-    - https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd
-    - https://github.com/argoproj/argo-cd
+    - name: argo-cd
+      repository: https://argoproj.github.io/argo-helm
+      version: 5.45.0
+    description: study argocd chart
+    digest: 987eb41d59f724194fce88b01afd51b00bfba084d7b04500b90516c4fd2d3f3c
+    name: argocd
     urls:
-    - argo-cd-5.45.0.tgz
-    version: 5.45.0
-generated: "2023-09-08T05:51:51.936333785Z"
+    - argocd-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-09-10T14:17:40.55971712Z"

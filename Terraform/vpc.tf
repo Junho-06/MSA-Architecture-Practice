@@ -1,126 +1,17 @@
-resource "aws_vpc" "msa_vpc" {
-  cidr_block = "10.0.0.0/16"
-
-  tags = {
-    Name = "msa_vpc"
-  }
+locals {
+  name_prefix     = "msa"
+  azs             = ["${data.aws_region.current.name}a", "${data.aws_region.current.name}b"]
+  public_subnets  = ["10.0.0.0/24", "10.0.16.0/24"]
+  private_subnets = ["10.0.32.0/24", "10.0.64.0/24"]
+  vpc_cidr        = "10.0.0.0/16"
 }
 
+module "vpc" {
+  source = "./modules/vpc"
 
-resource "aws_subnet" "msa_public_subnet_a" {
-  vpc_id            = aws_vpc.msa_vpc.id
-  cidr_block        = "10.0.1.0/24"
-  availability_zone = "ap-northeast-2a"
-
-  tags = {
-    Name = "msa_public_subnet_a"
-  }
-}
-resource "aws_subnet" "msa_public_subnet_b" {
-  vpc_id            = aws_vpc.msa_vpc.id
-  cidr_block        = "10.0.2.0/24"
-  availability_zone = "ap-northeast-2b"
-
-  tags = {
-    Name = "msa_public_subnet_b"
-  }
-}
-resource "aws_subnet" "msa_private_subnet_a" {
-  vpc_id            = aws_vpc.msa_vpc.id
-  cidr_block        = "10.0.3.0/24"
-  availability_zone = "ap-northeast-2a"
-
-  tags = {
-    Name = "msa_private_subnet_a"
-  }
-}
-resource "aws_subnet" "msa_private_subnet_b" {
-  vpc_id            = aws_vpc.msa_vpc.id
-  cidr_block        = "10.0.4.0/24"
-  availability_zone = "ap-northeast-2b"
-
-  tags = {
-    Name = "msa_private_subnet_b"
-  }
-}
-
-
-resource "aws_internet_gateway" "msa_igw" {
-  vpc_id = aws_vpc.msa_vpc.id
-
-  tags = {
-    Name = "msa_igw"
-  }
-}
-
-
-resource "aws_eip" "msa_nat_eip" {
-  domain = "vpc"
-
-  tags = {
-    Name = "msa_nat_eip"
-  }
-}
-resource "aws_nat_gateway" "msa_nat" {
-  allocation_id = aws_eip.msa_nat_eip.id
-  subnet_id     = aws_subnet.msa_public_subnet_a.id
-
-  tags = {
-    Name = "msa_nat"
-  }
-}
-
-
-resource "aws_route_table" "msa_public_rtb" {
-  vpc_id = aws_vpc.msa_vpc.id
-
-  route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.msa_igw.id
-  }
-
-  tags = {
-    Name = "msa_public_rtb"
-  }
-}
-resource "aws_route_table" "msa_private_rtb_a" {
-  vpc_id = aws_vpc.msa_vpc.id
-
-  route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = aws_nat_gateway.msa_nat.id
-  }
-
-  tags = {
-    Name = "msa_private_rtb_a"
-  }
-}
-resource "aws_route_table" "msa_private_rtb_b" {
-  vpc_id = aws_vpc.msa_vpc.id
-
-  route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = aws_nat_gateway.msa_nat.id
-  }
-
-  tags = {
-    Name = "msa_private_rtb_b"
-  }
-}
-
-resource "aws_route_table_association" "public_subnet_a_association" {
-  subnet_id      = aws_subnet.msa_public_subnet_a.id
-  route_table_id = aws_route_table.msa_public_rtb.id
-}
-resource "aws_route_table_association" "public_subnet_b_association" {
-  subnet_id      = aws_subnet.msa_public_subnet_b.id
-  route_table_id = aws_route_table.msa_public_rtb.id
-}
-resource "aws_route_table_association" "private_subnet_a_association" {
-  subnet_id      = aws_subnet.msa_private_subnet_a.id
-  route_table_id = aws_route_table.msa_private_rtb_a.id
-}
-resource "aws_route_table_association" "private_subnet_b_association" {
-  subnet_id      = aws_subnet.msa_private_subnet_b.id
-  route_table_id = aws_route_table.msa_private_rtb_b.id
+  vpc_cidr        = local.vpc_cidr
+  azs             = local.azs
+  private_subnets = local.private_subnets
+  public_subnets  = local.public_subnets
+  name_prefix     = local.name_prefix
 }

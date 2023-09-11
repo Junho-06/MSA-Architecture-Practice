@@ -18,7 +18,7 @@ locals {
   application-namespace = "default"
 }
 
-resource "helm_release" "argo-cd" {
+module "argo-cd" {
   source           = "./modules/helm"
   name             = local.argocd-name
   repository       = local.helm-repository
@@ -28,7 +28,7 @@ resource "helm_release" "argo-cd" {
   create_namespace = true
 }
 
-resource "helm_release" "application" {
+module "application" {
   source     = "./modules/helm"
   name       = local.application-name
   repository = local.helm-repository

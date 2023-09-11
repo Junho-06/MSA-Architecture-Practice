@@ -24,7 +24,7 @@ module "argo-cd" {
   namespace     = local.argocd-namespace
   repository    = local.helm-repository
   chart         = local.argocd-name
-  chart_version = local.argocd-verison
+  chart_version = local.argocd-version
 }
 
 module "application" {

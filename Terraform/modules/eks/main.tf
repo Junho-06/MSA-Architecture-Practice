@@ -36,6 +36,7 @@ module "eks" {
       instance_types         = [local.instance_type]
       create_security_group  = false
       create_launch_template = false
+      launch_template_name   = "msa-default-lt"
 
       min_size     = var.nodegroup_min_size
       max_size     = var.nodegroup_max_size

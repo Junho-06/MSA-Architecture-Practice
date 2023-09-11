@@ -1,6 +1,5 @@
 {{- range .Values.projects }}
 {{ $projectName := .name }}
-{{- range .applications }}
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -19,7 +18,7 @@ spec:
   clusterResourceWhitelist:
   - group: '*'
     kind: '*'
-{{- end }}
+{{- range .applications }}
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -40,4 +39,4 @@ spec:
       prune: {{ .syncPolicy.prune }}
       selfHeal: {{ .syncPolicy.selfHeal }}
 {{- end }}
----
+{{- end }}

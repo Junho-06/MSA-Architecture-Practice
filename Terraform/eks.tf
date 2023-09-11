@@ -13,7 +13,7 @@ module "eks" {
   capacity_type   = local.capacity_type
 
   vpc_id           = module.vpc.vpc_id
-  private_subnets  = module.vpc.private_subnets_ids
+  private_subnets  = module.vpc.private_subnet_ids
 
   nodegroup_min_size     = 1
   nodegroup_max_size     = 2

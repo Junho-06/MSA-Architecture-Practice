@@ -1,4 +1,5 @@
 locals {
+  cluster_name    = "msa_cluster"
   cluster_version = "1.27"
   node_type       = "t3.small"
   capacity_type   = "ON_DEMAND"
@@ -7,7 +8,7 @@ locals {
 module "eks" {
   source                 = "./modules/eks"
 
-  name_prefix     = local.name_prefix
+  cluster_name    = local.cluster_name
   cluster_version = local.cluster_version
   instance_type   = local.node_type
   capacity_type   = local.capacity_type

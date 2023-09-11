@@ -11,5 +11,5 @@ output "vpc_id" {
 }
 
 output "private_subnet_ids" {
-  value = module.vpc.private_subnets
+  value = [aws_subnet.msa_private_subnet_a.id, aws_subnet.msa_private_subnet_b.id]
 }

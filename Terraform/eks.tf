@@ -1,7 +1,7 @@
 locals {
   cluster_version = "1.27"
   node_type       = "t3.small"
-  capacity_type   = "ON_DEMAND"
+  capacity_type   = "SPOT" #"ON_DEMAND"
 }
 
 module "eks" {

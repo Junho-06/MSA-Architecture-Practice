@@ -41,9 +41,9 @@ module "eks" {
       max_size     = var.nodegroup_max_size
       desired_size = var.nodegroup_desired_size
 
-      iam_role_additional_policies = [
-        "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
-      ]
+      iam_role_additional_policies = {
+        ssm_managed_instance_core = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+      }
     }
   }
 

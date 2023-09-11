@@ -30,13 +30,27 @@ resource "aws_eks_cluster" "msa_eks_cluster" {
 
   vpc_config {
     subnet_ids = [
-      aws_subnet.msa_public_subnet_a.id,
-      aws_subnet.msa_public_subnet_b.id
+      aws_subnet.msa_public_private_a.id,
+      aws_subnet.msa_public_private_b.id
     ]
   }
 
   depends_on = [
     aws_iam_role_policy_attachment.attach_AmazonEKSClusterPolicy_to_Role,
     aws_iam_role_policy_attachment.attach_AmazonEKSVPCResourceController_to_Role
+  ]
+
+  manage_aws_auth_configmap = true
+
+  aws_auth_users = [
+    {
+      userarn  = data.aws_caller_identity.current.arn
+      username = element(split("/", data.aws_caller_identity.current.arn), 1)
+      groups   = ["system:masters"]
+    }
+  ]
+
+  aws_auth_accounts = [
+    data.aws_caller_identity.current.account_id
   ]
 }

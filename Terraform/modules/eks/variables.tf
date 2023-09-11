@@ -4,7 +4,7 @@ variable "cluster_version" {
 }
 variable "vpc_id" {
 }
-variable "private_subnets_ids" {
+variable "private_subnets" {
 }
 variable "instance_type" {
 }

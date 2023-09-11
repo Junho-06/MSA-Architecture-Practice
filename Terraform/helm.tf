@@ -19,21 +19,19 @@ locals {
 }
 
 module "argo-cd" {
-  source           = "./modules/helm"
-  name             = local.argocd-name
-  repository       = local.helm-repository
-  chart            = local.argocd-name
-  version          = local.argocd-version
-  namespace        = local.argocd-namespace
-  create_namespace = true
+  source        = "./modules/helm"
+  name          = local.argocd-name
+  namespace     = local.argocd-namespace
+  repository    = local.helm-repository
+  chart         = local.argocd-name
+  chart_version = local.argocd-verison
 }
 
 module "application" {
-  source     = "./modules/helm"
-  name       = local.application-name
-  repository = local.helm-repository
-  chart      = local.application-name
-  version    = local.application-version
-  namespace  = local.application-namespace
-  #create_namespace = true
+  source        = "./modules/helm"
+  name          = local.application-name
+  namespace     = local.argocd-namespace
+  repository    = local.helm-repository
+  chart         = local.application-name
+  chart_version = local.application-version
 }

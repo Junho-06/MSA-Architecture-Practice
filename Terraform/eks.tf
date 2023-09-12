@@ -4,7 +4,7 @@ locals {
   capacity_type   = "ON_DEMAND"
 }
 
-module "eks_impl" {
+module "eks" {
   source = "./modules/eks"
 
   name_prefix     = local.name_prefix

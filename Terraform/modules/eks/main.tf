@@ -62,3 +62,15 @@ module "eks" {
     data.aws_caller_identity.current.account_id
   ]
 }
+
+data "aws_eks_cluster" "cluster" {
+  name = module.eks.cluster_name
+}
+
+data "aws_eks_cluster_auth" "cluster" {
+  name = module.eks.cluster_name
+}
+
+data "aws_caller_identity" "current" {}
+data "aws_partition" "current" {}
+data "aws_availability_zones" "available" {}

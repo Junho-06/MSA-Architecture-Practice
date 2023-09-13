@@ -1,8 +1,8 @@
 locals {
-  ecr_names = [
-    "msa_ecr_go_registry",
-    "msa_ecr_spring_registry"
-  ]
+  ecr_names = {
+    msa_ecr_go_registry = "msa_ecr_go_registry",
+    msa_ecr_spring_registry = "msa_ecr_spring_registry"
+  }
   region = "ap-northeast-2"
 }
 

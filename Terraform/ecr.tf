@@ -1,17 +1,20 @@
-resource "aws_ecr_repository" "msa_ecr_go" {
-  name         = "msa_ecr_go_registry"
-  force_delete = true
-
-  tags = {
-    Name = "msa_ecr_go_registry"
-  }
+locals {
+  ecr_names = [
+    "msa_ecr_go_registry",
+    "msa_ecr_spring_registry"
+  ]
+  region = "ap-northeast-2"
 }
 
-resource "aws_ecr_repository" "msa_ecr_spring" {
-  name         = "msa_ecr_spring_registry"
-  force_delete = true
+module "ecr" {
+  source = "./modules/ecr"
 
-  tags = {
-    Name = "msa_ecr_spring_registry"
-  }
+  for_each = local.ecr_names
+  name     = each.value
+}
+
+output "ecr_url" {
+  value = [
+    for v in module.ecr : v.ecr_repository_url
+  ]
 }

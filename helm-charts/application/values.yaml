@@ -1,11 +1,11 @@
 projects:
-  - name: applications
+  - name: application
     applications:
       - name: application
+        namespace: argocd
         source:
-          path: "GitOps/charts"
+          path: GitOps/charts
           repoURL: https://github.com/Junho-06/MSA-Architecture-Practice.git
-          targetRevision: HEAD
         syncPolicy:
           automated:
             prune: true

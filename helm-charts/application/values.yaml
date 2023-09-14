@@ -3,7 +3,7 @@ projects:
     applications:
       - name: application
         source:
-          path: GitOps/charts
+          path: "GitOps/charts"
           repoURL: https://github.com/Junho-06/MSA-Architecture-Practice.git
           targetRevision: HEAD
         syncPolicy:

@@ -49,6 +49,7 @@ jobs:
 
       - name: checkout gh-pages branch and helm index
         run: | 
+          git clean -fd
           git checkout gh-pages --
           helm repo index .
 

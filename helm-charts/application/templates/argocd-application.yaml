@@ -27,16 +27,16 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: argocd
+    namespace: {{ .namespace }}
     server: https://kubernetes.default.svc
   project: {{ $projectName }}
   source:
     path: {{ .source.path }}
     repoURL: {{ .source.repoURL }}
-    targetRevision: {{ .source.targetRevision }}
+    targetRevision: HEAD
   syncPolicy:
     automated:
-      prune: {{ .syncPolicy.prune }}
-      selfHeal: {{ .syncPolicy.selfHeal }}
+      prune: {{ .syncPolicy.automated.prune }}
+      selfHeal: {{ .syncPolicy.automated.selfHeal }}
 {{- end }}
 {{- end }}

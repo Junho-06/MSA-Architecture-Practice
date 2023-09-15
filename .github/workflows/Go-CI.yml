@@ -78,7 +78,7 @@ jobs:
         yq eval -i ".config.service_name = \"${{ env.service_name }}\" | \
                   .config.imageTag = \"${{ env.image_tag }}\" | \
                   .config.containerPort = ${{ env.service_port }} | \
-                  $prefix" -i GitOps/charts/resource/Go/resource.yaml
+                  $prefix" -i GitOps/charts/resource/go/resource.yaml
       
     - name: Commit The New Image Reference
       if: ${{ env.service_name && env.service_prefix && env.image_tag}}

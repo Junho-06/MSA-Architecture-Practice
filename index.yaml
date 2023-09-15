@@ -3,7 +3,17 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-09-14T12:16:48.093712919Z"
+    created: "2023-09-15T02:07:41.203668483Z"
+    description: argo-cd study application
+    digest: b5792cc13229f2afc43b78aceb69fa01fa15cebcf08e66428dae18da7f3e27ba
+    name: application
+    type: application
+    urls:
+    - application-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-09-15T02:07:41.203437281Z"
     description: argo-cd study application
     digest: efa457491e8c6b24675435c72bb53970ed2124bb412306c12621153fd7511695
     name: application
@@ -14,7 +24,20 @@ entries:
   argo-cd:
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-09-14T12:16:48.109952498Z"
+    created: "2023-09-15T02:07:41.231741959Z"
+    dependencies:
+    - name: argo-cd
+      repository: https://argoproj.github.io/argo-helm
+      version: 5.45.0
+    description: study argo-cd chart
+    digest: bba9d553414046b282e57bb5f5559e2e444284c967514da791e7c2d579179290
+    name: argo-cd
+    urls:
+    - argo-cd-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: v2.3.4
+    created: "2023-09-15T02:07:41.21762402Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -25,4 +48,4 @@ entries:
     urls:
     - argo-cd-0.1.0.tgz
     version: 0.1.0
-generated: "2023-09-14T12:16:48.093268014Z"
+generated: "2023-09-15T02:07:41.203055677Z"

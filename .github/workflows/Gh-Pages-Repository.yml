@@ -49,7 +49,7 @@ jobs:
 
       - name: checkout gh-pages branch and helm index
         run: | 
-          git switch gh-pages --
+          git checkout gh-pages --
           helm repo index .
 
       - name: Commit The Chart Realease

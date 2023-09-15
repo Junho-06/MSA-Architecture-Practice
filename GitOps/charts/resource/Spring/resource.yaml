@@ -1,0 +1,11 @@
+config:
+  volume:
+    name: null
+    mountPath: null
+    secretName: null
+  serviceAccount: null
+  replicas: 1
+  service_name: Spring
+  imageTag: null
+  containerPort: 8080
+  prefix: /spring

@@ -5,7 +5,7 @@ config:
     secretName: null
   serviceAccount: null
   replicas: 1
-  service_name: Spring
-  imageTag: null
+  service_name: spring
+  imageTag: fbd821f93e2d45af6176fec62c10a94dd6832ea2
   containerPort: 8080
   prefix: /spring

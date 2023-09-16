@@ -54,13 +54,13 @@ jobs:
         docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
-    - name: Set Payload Aliases
-      id: set_payload
+    - name: Set env
+      id: set_env
       run: |
-        echo "service_name=${{ github.event.client_payload.service_name }}" >> $GITHUB_ENV
-        echo "service_prefix=${{ github.event.client_payload.service_prefix }}" >> $GITHUB_ENV
-        echo "image_tag=${{ github.event.client_payload.image_tag }}" >> $GITHUB_ENV
-        echo "service_port=${{ github.event.client_payload.service_port }}" >> $GITHUB_ENV
+        echo "service_name=spring" >> $GITHUB_ENV
+        echo "service_prefix=/spring" >> $GITHUB_ENV
+        echo "image_tag=${{ github.sha }}" >> $GITHUB_ENV
+        echo "service_port=8080" >> $GITHUB_ENV
 
     - name: Pull Commit 
       run: git pull

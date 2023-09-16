@@ -33,4 +33,6 @@ module "application" {
   repository    = local.helm-repository
   chart         = local.application-name
   chart_version = local.application-version
+
+  create_namespace = true
 }

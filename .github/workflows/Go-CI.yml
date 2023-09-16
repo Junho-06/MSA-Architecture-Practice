@@ -68,6 +68,7 @@ jobs:
     - name: Use yq to modify Config file
       working-directory: ${{ github.workspace}}/GitOps
       run: |
+        pwd
         prefix='/go'
         if [ -n "${{ env.service_prefix }}" ] && [ "${{ env.service_prefix }}" != "null" ]; then
           prefix='.config.prefix = "${{ env.service_prefix }}"'
@@ -78,7 +79,9 @@ jobs:
         yq eval -i ".config.service_name = \"${{ env.service_name }}\" | \
                   .config.imageTag = \"${{ env.image_tag }}\" | \
                   .config.containerPort = ${{ env.service_port }} | \
-                  $prefix" -i charts/resource/go/resource.yaml
+                  $prefix" -i GitOps/charts/resource/go/resource.yaml
+
+        cat GitOps/charts/resource/go/resource.yaml
       
     - name: Commit The New Image Reference
       if: ${{ env.service_name && env.service_prefix && env.image_tag}}

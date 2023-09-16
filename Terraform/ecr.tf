@@ -11,8 +11,6 @@ module "ecr" {
 
   for_each = local.ecr_names
   name     = each.value
-
-  image_tag_mutability = "MUTABLE"
 }
 
 output "ecr_url" {

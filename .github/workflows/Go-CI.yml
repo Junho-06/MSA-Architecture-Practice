@@ -51,8 +51,8 @@ jobs:
     - name: Set env
       id: set_env
       run: |
-        echo "service_name=spring" >> $GITHUB_ENV
-        echo "service_prefix=/spring" >> $GITHUB_ENV
+        echo "service_name=go" >> $GITHUB_ENV
+        echo "service_prefix=/go" >> $GITHUB_ENV
         echo "image_tag=${{ github.sha }}" >> $GITHUB_ENV
         echo "service_port=8080" >> $GITHUB_ENV
 

@@ -1,0 +1,11 @@
+config:
+  volume:
+    name: null
+    mountPath: null
+    secretName: null
+  serviceAccount: null
+  replicas: 1
+  service_name: go
+  imageTag: d018286bbb2ed9f69933f5606a37d6d940058ad6
+  containerPort: 8080
+  prefix: /go

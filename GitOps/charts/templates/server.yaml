@@ -28,7 +28,6 @@ spec:
         helm:
           values: |-
             name: '{{`{{ config.service_name }}`}}'
-            host: '{{ .Values.spec.host }}'
             imageRegistry: '{{ .Values.spec.source.imageRegistry }}'
             imageTag: '{{`{{ config.imageTag }}`}}'
             containerPort: '{{`{{ config.containerPort }}`}}'

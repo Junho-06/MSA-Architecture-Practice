@@ -24,6 +24,8 @@ module "argo-cd" {
   repository    = local.helm-repository
   chart         = local.argocd-name
   chart_version = local.argocd-version
+
+  depends_on = [ module.eks.cluster_id ]
 }
 
 module "application" {
@@ -35,4 +37,6 @@ module "application" {
   chart_version = local.application-version
 
   create_namespace = true
+
+  depends_on = [ module.eks.cluster_id ]
 }

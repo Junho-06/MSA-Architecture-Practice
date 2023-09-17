@@ -9,5 +9,5 @@ resource "helm_release" "this" {
   cleanup_on_fail   = var.cleanup_on_fail
   create_namespace  = var.create_namespace
 
-  depends_on = [ module.eks ]
+  depends_on = [ module.eks.cluster_id ]
 }

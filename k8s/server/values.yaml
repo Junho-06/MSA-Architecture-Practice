@@ -1,0 +1,10 @@
+config:
+  replicas: 1
+  service_name: null
+  imageTag: null
+  containerPort: null
+  prefix: null
+  volume_name: null
+  volume_mount_path: null
+  volume_secret_name: null
+  volume_secret_namespace: null

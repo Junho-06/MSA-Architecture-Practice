@@ -1,0 +1,49 @@
+{{- $destination := "https://kubernetes.default.svc" }}
+{{- $repository := "https://github.com/Junho-06/MSA-Architecture-Practice.git" }}
+{{- $imageRegistry := "250832144271.dkr.ecr.ap-northeast-2.amazonaws.com" }}
+{{- $project := "application" }}
+{{- $namespace := "msa" }}
+
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: applications
+  namespace: argocd
+  labels:
+    layer: applications
+spec:
+  template:
+    metadata:
+      name: 'application'
+    spec:
+      project: {{ $project }}
+      destination:
+        server: {{ $destination }}
+        namespace: {{ $namespace }}
+      source:
+        path: GitOps/apps
+        repoURL: {{ $repository }}
+        targetRevision: HEAD
+        helm:
+          valueFiles:
+            - 'values.yaml'
+          values: |
+            {{- $map :=
+              (dict "spec"
+                (dict
+                "project" $project
+                "destination"
+                  (dict "server" $destination)
+                "source"
+                  (dict "serverPath" "GitOps/server/" "repoURL" $repository "targetRevision" "HEAD" "imageRegistry" $imageRegistry) 
+                )
+              )
+            }}
+            {{- $map | toYaml | nindent 12 | toString }}
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - Createnamespace=true
+        - "--creds=argocd-ecr-secret"

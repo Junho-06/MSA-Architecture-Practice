@@ -1,0 +1,63 @@
+{{- $fullname := (printf "%s" .Values.name) }}
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $fullname }}
+  labels:
+    app: {{ $fullname }}
+    project: {{ .Values.name }}
+spec:
+  revisionHistoryLimit: 0
+  {{- if .Values.replicas }}
+  replicas: {{ .Values.replicas }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 50%
+  {{- end }}
+  selector:
+    matchLabels:
+      app: {{ $fullname }}
+  template:
+    metadata:      
+      annotations:
+        sidecar.istio.io/proxyCPU: "5m"
+        sidecar.istio.io/proxyMemory: "128Mi"
+      labels:
+        app: {{ $fullname }}
+        project: {{ .Values.name }}
+    spec:
+      topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: DoNotSchedule
+        labelSelector:
+          matchLabels:
+            app: {{ $fullname }}
+      {{- if ne .Values.serviceAccount "<nil>" }}
+      serviceAccountName: {{ .Values.serviceAccount }}
+      {{- end }}
+      containers:
+        - name:  {{ $fullname }}
+          image: {{ .Values.imageRegistry }}/{{ .Values.name }}:{{ .Values.imageTag }}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: {{ .Values.containerPort }}
+          {{- if ne .Values.volume.name "<nil>" }}
+          volumeMounts:
+            - mountPath: {{ .Values.volume.mountPath }}
+              name: {{ .Values.volume.name }}
+              readOnly: true
+          {{- end }}
+          resources:
+            requests:
+              memory: "516Mi"
+              cpu: "5m"
+      {{- if ne .Values.volume.name "<nil>" }}
+      volumes:
+        - name: {{ .Values.volume.name }}
+          secret:
+            secretName: {{ .Values.volume.secretName }}
+      {{- end }}

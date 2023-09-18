@@ -15,6 +15,10 @@ locals {
 
   application-name      = "application"
   application-version   = "0.1.1"
+
+  aws-load-balancer-controller-name      = "aws-load-balancer-controller"
+  aws-load-balancer-controller-version   = "1.6.1"
+  aws-load-balancer-controller-namespace = "kube-system"
 }
 
 module "argo-cd" {

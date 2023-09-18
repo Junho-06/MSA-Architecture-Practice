@@ -28,6 +28,8 @@ module "argo-cd" {
   repository    = local.helm-repository
   chart         = local.argocd-name
   chart_version = local.argocd-version
+
+  create_namespace = true
 }
 
 module "application" {
@@ -37,6 +39,17 @@ module "application" {
   repository    = local.helm-repository
   chart         = local.application-name
   chart_version = local.application-version
+
+  create_namespace = true
+}
+
+module "aws-load-balancer-controller" {
+  source        = "./modules/helm"
+  name          = local.aws-load-balancer-controller-name
+  namespace     = local.aws-load-balancer-controller-namespace
+  repository    = local.helm-repository
+  chart         = local.aws-load-balancer-controller-name
+  chart_version = local.aws-load-balancer-controller-version
 
   create_namespace = true
 }

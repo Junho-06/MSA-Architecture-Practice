@@ -32,20 +32,14 @@ jobs:
           helm repo add argo https://argoproj.github.io/argo-helm
           helm repo add dandydeveloper https://dandydeveloper.github.io/charts/
 
-      - name: Find Changed Helm Charts
-        id: find-changed-charts
+      - name: Helm build
         run: |
-          changed_charts=$(git diff --name-only HEAD~1 | grep '^helm-charts/' | cut -d/ -f2 | sort -u)
-          echo "::set-output name=changed_charts::${changed_charts}"
-        shell: bash
-  
-      - name: Build and Package Helm Charts
-        run: |
-          for chart_directory in helm-charts/*/; do
-            app_name=$(basename $chart_directory)
-            helm dependency build $chart_directory
-            helm package $chart_directory
-          done <<< "${{ steps.find-changed-charts.outputs.changed_charts }}"
+          changed_helm_packages=$(git diff --name-only HEAD~1 | grep '^charts/' | cut -d/ -f1-2)
+
+          while IFS=$'\n' read -r package_directory; do
+              helm dependency build $package_directory
+              helm package $package_directory
+          done <<< "$changed_helm_packages"
 
       - name: checkout gh-pages branch and helm index
         run: | 

@@ -14,7 +14,7 @@ locals {
   argocd-namespace = "argocd"
 
   application-name      = "application"
-  application-version   = "0.1.1"
+  application-version   = "0.1.2"
 }
 
 module "argo-cd" {

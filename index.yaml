@@ -3,7 +3,17 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-09-15T02:07:41.203668483Z"
+    created: "2023-09-18T00:32:42.474331208Z"
+    description: argo-cd study application
+    digest: 9932e4db1a4199d62067279310f4065485bff9422d4284af874f6372f3da2ae7
+    name: application
+    type: application
+    urls:
+    - application-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-09-18T00:32:42.474097606Z"
     description: argo-cd study application
     digest: b5792cc13229f2afc43b78aceb69fa01fa15cebcf08e66428dae18da7f3e27ba
     name: application
@@ -13,7 +23,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-09-15T02:07:41.203437281Z"
+    created: "2023-09-18T00:32:42.473711202Z"
     description: argo-cd study application
     digest: efa457491e8c6b24675435c72bb53970ed2124bb412306c12621153fd7511695
     name: application
@@ -24,7 +34,20 @@ entries:
   argo-cd:
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-09-15T02:07:41.231741959Z"
+    created: "2023-09-18T00:32:42.521091292Z"
+    dependencies:
+    - name: argo-cd
+      repository: https://argoproj.github.io/argo-helm
+      version: 5.45.0
+    description: study argo-cd chart
+    digest: eec856c043fd4155f6fdc72eafef659ba2aceb1952e2adbb1fc10ad13834288d
+    name: argo-cd
+    urls:
+    - argo-cd-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: v2.3.4
+    created: "2023-09-18T00:32:42.503790013Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -37,7 +60,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-09-15T02:07:41.21762402Z"
+    created: "2023-09-18T00:32:42.488425554Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -48,4 +71,4 @@ entries:
     urls:
     - argo-cd-0.1.0.tgz
     version: 0.1.0
-generated: "2023-09-15T02:07:41.203055677Z"
+generated: "2023-09-18T00:32:42.472891093Z"

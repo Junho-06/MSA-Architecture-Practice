@@ -15,6 +15,10 @@ locals {
 
   application-name      = "application"
   application-version   = "0.1.1"
+
+  istio-name      = "istio"
+  istio-version   = "0.1.0"
+  istio-namespace = "istio-system"
 }
 
 module "argo-cd" {
@@ -35,4 +39,13 @@ module "application" {
   chart_version = local.application-version
 
   create_namespace = true
+}
+
+module "istio" {
+  source        = "./modules/helm"
+  name          = local.istio-name
+  namespace     = local.istio-namespace
+  repository    = local.helm-repository
+  chart         = local.istio-name
+  chart_version = local.istio-version
 }

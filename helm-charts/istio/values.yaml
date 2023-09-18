@@ -1,0 +1,61 @@
+istioOperator:
+  profile: default
+  service:
+    externalTrafficPolicy: Local
+  hpaSpec:
+    minReplicas: 2
+    maxReplicas: 5
+  serviceType: LoadBalancer 
+  servicePorts:
+    - name: http
+      port: 80
+      targetPort: 8080
+    - name: https
+      port: 443
+      targetPort: 8443
+    - name: helath
+      port: 15020
+      targetPort: 15020
+  serviceAnnotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+    service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: "*"
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "443"
+    service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
+
+hub: gcr.io/istio-testing
+tag: latest
+
+imagePullSecrets: []
+imagePullPolicy: ""
+watchedNamespaces: istio-system
+waitForResourcesTimeout: 300s
+enableCRDTemplates: false
+revision: ""
+deploymentHistory: 0
+
+nodeSelector:
+  Karpenter: enabled
+  
+tolerations:
+- effect: "PreferNoSchedule"
+  key: "xquare/server"
+  operator: "Equal"
+  value: "true"
+
+operator:
+  monitoring:
+    host: 127.0.0.1
+    port: 15014
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 50m
+      memory: 128Mi
+  seccompProfile: {}
+
+affinity: {}
+podLabels: {}
+podAnnotations: {}

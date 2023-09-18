@@ -4,7 +4,7 @@ projects:
       - name: application
         namespace: argocd
         source:
-          path: GitOps/charts
+          path: GitOps/deploy
           repoURL: https://github.com/Junho-06/MSA-Architecture-Practice.git
         syncPolicy:
           automated:

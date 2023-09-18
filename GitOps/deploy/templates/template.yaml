@@ -46,4 +46,3 @@ spec:
           selfHeal: true
         syncOptions:
         - Createnamespace=true
-        - "--creds=argocd-ecr-secret"

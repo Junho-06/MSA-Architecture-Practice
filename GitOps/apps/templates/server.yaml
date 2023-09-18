@@ -9,7 +9,7 @@ spec:
       repoURL: {{ .Values.spec.source.repoURL }}
       revision: HEAD
       files:
-      - path: "GitOps/charts/resource/**/resource.yaml"
+      - path: "GitOps/apps/resource/**/resource.yaml"
   template:
     metadata:
       name: '{{`{{ config.service_name }}`}}'

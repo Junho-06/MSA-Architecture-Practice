@@ -102,7 +102,7 @@ additionalLabels: {}
 enableCertManager: false
 
 # The name of the Kubernetes cluster. A non-empty value is required
-clusterName:
+clusterName: msa-cluster
 
 # cluster contains configurations specific to the kubernetes cluster
 cluster:

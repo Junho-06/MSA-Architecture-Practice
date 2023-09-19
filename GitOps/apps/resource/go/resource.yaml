@@ -5,7 +5,7 @@ config:
     secretName: null
   serviceAccount: null
   replicas: 1
-  service_name: Go
-  imageTag: null
+  service_name: go
+  imageTag: ba7935543edae7c0b066fe71df7ef222a05bbfed
   containerPort: 8080
   prefix: /go

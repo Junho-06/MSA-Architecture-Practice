@@ -12,6 +12,10 @@ metadata:
   labels:
     layer: applications
 spec:
+  generators:
+    - list:
+        elements: 
+          - environment: msa
   template:
     metadata:
       name: 'application'

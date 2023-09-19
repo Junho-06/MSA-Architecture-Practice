@@ -68,7 +68,7 @@ jobs:
       id: config-file
       working-directory: ${{ github.workspace }}
       run: |
-        config_file_dir="./GitOps/charts/resource/${{ env.service_name }}"
+        config_file_dir="./GitOps/apps/resource/${{ env.service_name }}"
         mkdir -p "$config_file_dir"
 
         config_file_path="$config_file_dir/resource.yaml"

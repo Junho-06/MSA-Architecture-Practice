@@ -3,7 +3,17 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-09-18T18:00:57.686022119Z"
+    created: "2023-09-19T04:34:23.578745662Z"
+    description: argo-cd study application
+    digest: ab159cb2d6699dc7116fa23fedb771c8e8e09e296b0093bec63e77848a900a2b
+    name: application
+    type: application
+    urls:
+    - application-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-09-19T04:34:23.578526647Z"
     description: argo-cd study application
     digest: efee2bde7e6b38cf80860e2191fe521f08960b85bdb653474be2cfa41d351dd2
     name: application
@@ -14,7 +24,7 @@ entries:
   argo-cd:
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-09-18T18:00:57.708273545Z"
+    created: "2023-09-19T04:34:23.59342584Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -28,7 +38,7 @@ entries:
   aws-load-balancer-controller:
   - apiVersion: v2
     appVersion: v2.6.1
-    created: "2023-09-18T18:00:57.711199122Z"
+    created: "2023-09-19T04:34:23.596874869Z"
     description: AWS Load Balancer Controller Helm chart for Kubernetes
     digest: 3a2345485bfd170365151235185168fa297b407e30e1ae9b4ef19f8ab812e3ff
     home: https://github.com/aws/eks-charts
@@ -54,7 +64,7 @@ entries:
     version: 1.6.2
   - apiVersion: v2
     appVersion: v2.6.1
-    created: "2023-09-18T18:00:57.709794333Z"
+    created: "2023-09-19T04:34:23.595110152Z"
     description: AWS Load Balancer Controller Helm chart for Kubernetes
     digest: af154000560baf95707516d761eb5a2d6e278e674d939a149398da49b00cf6cf
     home: https://github.com/aws/eks-charts
@@ -81,7 +91,7 @@ entries:
   istio:
   - apiVersion: v2
     appVersion: 1.18.1
-    created: "2023-09-18T18:00:57.718803263Z"
+    created: "2023-09-19T04:34:23.605351034Z"
     description: Istio operator
     digest: 618d94a2a44a38c9ad1c98546932cbc356a2b26ce9b49656c2ce8c2aae0c7c4f
     name: istio
@@ -89,4 +99,4 @@ entries:
     urls:
     - istio-0.1.0.tgz
     version: 0.1.0
-generated: "2023-09-18T18:00:57.684746929Z"
+generated: "2023-09-19T04:34:23.578155623Z"

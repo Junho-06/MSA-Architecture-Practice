@@ -2,15 +2,15 @@ argocd:
   config:
     params:
       server.insecure: true 
-  server:
-    extraArgs:
-      - --basehref
-      - /argocd
-      # - --rootpath
-  ingress:
-    enabled: true
-    annotations:
-      kubernetes.io/ingress.class: "alb"
-      alb.ingress.kubernetes.io/scheme: internet-facing
-    paths:
-      - "/argocd"
+server:
+  extraArgs:
+    - --basehref
+    - /argocd
+    # - --rootpath
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: "alb"
+    alb.ingress.kubernetes.io/scheme: internet-facing
+  paths:
+    - "/argocd"

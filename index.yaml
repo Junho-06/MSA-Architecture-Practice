@@ -3,7 +3,7 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-09-20T05:16:14.283051659Z"
+    created: "2023-09-20T08:45:27.794312134Z"
     description: argo-cd study application
     digest: 32e79d04a21ffd4444ac63836730eeae10e29a55b31311507b7a49e3f0d906b2
     name: application
@@ -13,7 +13,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-09-20T05:16:14.282579953Z"
+    created: "2023-09-20T08:45:27.794076731Z"
     description: argo-cd study application
     digest: ab159cb2d6699dc7116fa23fedb771c8e8e09e296b0093bec63e77848a900a2b
     name: application
@@ -23,7 +23,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-09-20T05:16:14.282269549Z"
+    created: "2023-09-20T08:45:27.793880929Z"
     description: argo-cd study application
     digest: efee2bde7e6b38cf80860e2191fe521f08960b85bdb653474be2cfa41d351dd2
     name: application
@@ -34,7 +34,20 @@ entries:
   argo-cd:
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-09-20T05:16:14.303155315Z"
+    created: "2023-09-20T08:45:27.82221011Z"
+    dependencies:
+    - name: argo-cd
+      repository: https://argoproj.github.io/argo-helm
+      version: 5.45.0
+    description: study argo-cd chart
+    digest: 5714cbae8585f90282014d796e989f2fb311c61696d3739e4c87c2f701902458
+    name: argo-cd
+    urls:
+    - argo-cd-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: v2.3.4
+    created: "2023-09-20T08:45:27.80908158Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -48,7 +61,7 @@ entries:
   aws-load-balancer-controller:
   - apiVersion: v2
     appVersion: v2.6.1
-    created: "2023-09-20T05:16:14.307945176Z"
+    created: "2023-09-20T08:45:27.824982238Z"
     description: AWS Load Balancer Controller Helm chart for Kubernetes
     digest: 3a2345485bfd170365151235185168fa297b407e30e1ae9b4ef19f8ab812e3ff
     home: https://github.com/aws/eks-charts
@@ -74,7 +87,7 @@ entries:
     version: 1.6.2
   - apiVersion: v2
     appVersion: v2.6.1
-    created: "2023-09-20T05:16:14.305537945Z"
+    created: "2023-09-20T08:45:27.823629124Z"
     description: AWS Load Balancer Controller Helm chart for Kubernetes
     digest: af154000560baf95707516d761eb5a2d6e278e674d939a149398da49b00cf6cf
     home: https://github.com/aws/eks-charts
@@ -101,7 +114,7 @@ entries:
   istio:
   - apiVersion: v2
     appVersion: 1.18.1
-    created: "2023-09-20T05:16:14.309701098Z"
+    created: "2023-09-20T08:45:27.826325051Z"
     description: Istio operator
     digest: 618d94a2a44a38c9ad1c98546932cbc356a2b26ce9b49656c2ce8c2aae0c7c4f
     name: istio
@@ -109,4 +122,4 @@ entries:
     urls:
     - istio-0.1.0.tgz
     version: 0.1.0
-generated: "2023-09-20T05:16:14.281698041Z"
+generated: "2023-09-20T08:45:27.793529726Z"

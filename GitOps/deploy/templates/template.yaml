@@ -2,7 +2,7 @@
 {{- $repository := "https://github.com/Junho-06/MSA-Architecture-Practice.git" }}
 {{- $imageRegistry := "250832144271.dkr.ecr.ap-northeast-2.amazonaws.com" }}
 {{- $project := "application" }}
-{{- $namespace := "msa" }}
+{{- $namespace := "default" }}
 
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet

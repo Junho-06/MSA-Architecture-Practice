@@ -7,10 +7,10 @@ server:
     - --basehref
     - /argocd
     # - --rootpath
-ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/ingress.class: "alb"
-    alb.ingress.kubernetes.io/scheme: internet-facing
-  paths:
-    - "/argocd"
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: "alb"
+      alb.ingress.kubernetes.io/scheme: internet-facing
+    paths:
+      - "/argocd"

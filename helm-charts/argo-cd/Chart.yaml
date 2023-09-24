@@ -7,3 +7,6 @@ dependencies:
 - name: argo-cd
   version: 5.45.0
   repository: https://argoproj.github.io/argo-helm
+- name: argo-cd-ingress
+  version: 0.1.0
+  repository: https://junho-06.github.io/MSA-Architecture-Practice

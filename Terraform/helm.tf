@@ -17,7 +17,7 @@ locals {
   application-version   = "0.1.1"
 
   aws-load-balancer-controller-name      = "aws-load-balancer-controller"
-  aws-load-balancer-controller-version   = "1.6.3"
+  aws-load-balancer-controller-version   = "1.6.4"
   aws-load-balancer-controller-namespace = "kube-system"
 }
 

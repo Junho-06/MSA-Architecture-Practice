@@ -17,10 +17,11 @@ serviceAccount:
   # Specifies whether a service account should be created
   create: true
   # Annotations to add to the service account
-  annotations: {}
+  annotations: 
+    eks.amazonaws.com/role-arn: arn:aws:iam::250832144271:role/load-balancer-controller
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
-  name:
+  name: aws-load-balancer-controller
   # Automount API credentials for a Service Account.
   automountServiceAccountToken: true
   # List of image pull secrets to add to the Service Account.

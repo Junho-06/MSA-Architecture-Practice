@@ -1,6 +1,0 @@
-project:
-  - name: msa
-    users:
-    - "Junho-06"
-    projects:
-    - application

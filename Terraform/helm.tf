@@ -14,7 +14,7 @@ locals {
   argocd-namespace = "argocd"
 
   application-name      = "application"
-  application-version   = "0.1.0"
+  application-version   = "0.1.1"
 
   aws-load-balancer-controller-name      = "aws-load-balancer-controller"
   aws-load-balancer-controller-version   = "1.6.2"

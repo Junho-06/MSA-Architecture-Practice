@@ -10,14 +10,3 @@ projects:
           automated:
             prune: true
             selfHeal: true
-  - name: application-role
-    applications:
-      - name: application-role
-        namespace: argocd
-        source:
-          path: k8s/apps/role
-          repoURL: https://github.com/Junho-06/MSA-Architecture-Practice.git
-        syncPolicy:
-          automated:
-            prune: true
-            selfHeal: true

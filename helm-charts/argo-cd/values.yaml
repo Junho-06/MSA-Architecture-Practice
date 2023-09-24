@@ -1,4 +1,13 @@
-argocd:
-  config:
-    params:
-      server.insecure: true
+server:
+  extraArgs:
+  - --insecure
+  ingress:
+    enabled: true
+    annotations:
+      alb.ingress.kubernetes.io/scheme: internet-facing
+      alb.ingress.kubernetes.io/target-type: ip
+      alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+      alb.ingress.kubernetes.io/ssl-redirect: "443"
+    ingressClassName: "alb"
+    paths:
+    - /argocd

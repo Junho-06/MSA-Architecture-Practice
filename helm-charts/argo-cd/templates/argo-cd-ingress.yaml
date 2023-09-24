@@ -1,25 +1,25 @@
-  apiVersion: networking.k8s.io/v1
-  kind: Ingress
-  metadata:
-    annotations:
-      alb.ingress.kubernetes.io/backend-protocol: HTTPS
-      alb.ingress.kubernetes.io/conditions.argogrpc: |
-        [{"field":"http-header","httpHeaderConfig":{"httpHeaderName": "Content-Type", "values":["application/grpc"]}}]
-      alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
-    name: argocd
-    namespace: argocd
-  spec:
-    rules:
-    - host: argocd.argoproj.io
-      http:
-        paths:
-        - path: /argo-cd
-          backend:
-            service:
-              name: argocd-server
-              port:
-                number: 443
-          pathType: Prefix
-    tls:
-    - hosts:
-      - argocd.argoproj.io
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/backend-protocol: HTTPS
+    alb.ingress.kubernetes.io/conditions.argogrpc: |
+      [{"field":"http-header","httpHeaderConfig":{"httpHeaderName": "Content-Type", "values":["application/grpc"]}}]
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+  name: argocd
+  namespace: argocd
+spec:
+  rules:
+  - host: argocd.argoproj.io
+    http:
+      paths:
+      - path: /argo-cd
+        backend:
+          service:
+            name: argocd-server
+            port:
+              number: 443
+        pathType: Prefix
+  tls:
+  - hosts:
+    - argocd.argoproj.io

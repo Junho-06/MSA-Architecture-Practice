@@ -3,7 +3,7 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-09-24T03:08:15.022372939Z"
+    created: "2023-09-24T04:40:57.601073898Z"
     description: argo-cd study application
     digest: 73e7a849cae82f254ab95f61a1855d7a2b9d48c28adc9d7c5db9a1f17483735c
     name: application
@@ -13,7 +13,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-09-24T03:08:15.022151338Z"
+    created: "2023-09-24T04:40:57.600800507Z"
     description: argo-cd study application
     digest: ff3923f31376acdb044987116afc6a2bb89914b3daff40dcc39053d02c9b70ce
     name: application
@@ -24,7 +24,7 @@ entries:
   argo-cd:
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-09-24T03:08:15.053923372Z"
+    created: "2023-09-24T04:40:57.630822421Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -37,7 +37,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-09-24T03:08:15.036260253Z"
+    created: "2023-09-24T04:40:57.617198123Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -51,7 +51,33 @@ entries:
   aws-load-balancer-controller:
   - apiVersion: v2
     appVersion: v2.6.1
-    created: "2023-09-24T03:08:15.056632874Z"
+    created: "2023-09-24T04:40:57.635169393Z"
+    description: AWS Load Balancer Controller Helm chart for Kubernetes
+    digest: 03e25a71039748b38726f5341deb513ef09e6ac0afdba04a61f02860350397d2
+    home: https://github.com/aws/eks-charts
+    icon: https://raw.githubusercontent.com/aws/eks-charts/master/docs/logo/aws.png
+    keywords:
+    - eks
+    - alb
+    - load balancer
+    - ingress
+    - nlb
+    maintainers:
+    - email: kishorj@users.noreply.github.com
+      name: kishorj
+      url: https://github.com/kishorj
+    - email: m00nf1sh@users.noreply.github.com
+      name: m00nf1sh
+      url: https://github.com/m00nf1sh
+    name: aws-load-balancer-controller
+    sources:
+    - https://github.com/aws/eks-charts
+    urls:
+    - aws-load-balancer-controller-1.6.3.tgz
+    version: 1.6.3
+  - apiVersion: v2
+    appVersion: v2.6.1
+    created: "2023-09-24T04:40:57.633762134Z"
     description: AWS Load Balancer Controller Helm chart for Kubernetes
     digest: 3a2345485bfd170365151235185168fa297b407e30e1ae9b4ef19f8ab812e3ff
     home: https://github.com/aws/eks-charts
@@ -77,7 +103,7 @@ entries:
     version: 1.6.2
   - apiVersion: v2
     appVersion: v2.6.1
-    created: "2023-09-24T03:08:15.055275373Z"
+    created: "2023-09-24T04:40:57.632323976Z"
     description: AWS Load Balancer Controller Helm chart for Kubernetes
     digest: af154000560baf95707516d761eb5a2d6e278e674d939a149398da49b00cf6cf
     home: https://github.com/aws/eks-charts
@@ -101,4 +127,4 @@ entries:
     urls:
     - aws-load-balancer-controller-1.6.1.tgz
     version: 1.6.1
-generated: "2023-09-24T03:08:15.021713938Z"
+generated: "2023-09-24T04:40:57.600325621Z"

@@ -3,7 +3,7 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-09-24T07:06:29.178860546Z"
+    created: "2023-09-24T13:51:02.957142202Z"
     description: argo-cd study application
     digest: 73e7a849cae82f254ab95f61a1855d7a2b9d48c28adc9d7c5db9a1f17483735c
     name: application
@@ -13,7 +13,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-09-24T07:06:29.178637441Z"
+    created: "2023-09-24T13:51:02.9568401Z"
     description: argo-cd study application
     digest: ff3923f31376acdb044987116afc6a2bb89914b3daff40dcc39053d02c9b70ce
     name: application
@@ -24,7 +24,20 @@ entries:
   argo-cd:
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-09-24T07:06:29.245418105Z"
+    created: "2023-09-24T13:51:03.055726428Z"
+    dependencies:
+    - name: argo-cd
+      repository: https://argoproj.github.io/argo-helm
+      version: 5.45.0
+    description: study argo-cd chart
+    digest: 5844bf195984412dc49f761540d0408b5cfe0143aeb48c20b4cf9808f8698ee6
+    name: argo-cd
+    urls:
+    - argo-cd-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: v2.3.4
+    created: "2023-09-24T13:51:03.038272817Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -37,7 +50,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-09-24T07:06:29.233106635Z"
+    created: "2023-09-24T13:51:03.022585218Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -50,7 +63,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-09-24T07:06:29.220310354Z"
+    created: "2023-09-24T13:51:03.006022012Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -63,7 +76,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-09-24T07:06:29.206247846Z"
+    created: "2023-09-24T13:51:02.98992791Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -76,7 +89,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-09-24T07:06:29.19227794Z"
+    created: "2023-09-24T13:51:02.972790502Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -90,7 +103,7 @@ entries:
   aws-load-balancer-controller:
   - apiVersion: v2
     appVersion: v2.6.1
-    created: "2023-09-24T07:06:29.250755022Z"
+    created: "2023-09-24T13:51:03.062177369Z"
     description: AWS Load Balancer Controller Helm chart for Kubernetes
     digest: e10cacdbb97dd733a123021c01c8593684828689515fb48e9b3addebdac019ed
     home: https://github.com/aws/eks-charts
@@ -116,7 +129,7 @@ entries:
     version: 1.6.4
   - apiVersion: v2
     appVersion: v2.6.1
-    created: "2023-09-24T07:06:29.249417993Z"
+    created: "2023-09-24T13:51:03.060580559Z"
     description: AWS Load Balancer Controller Helm chart for Kubernetes
     digest: 03e25a71039748b38726f5341deb513ef09e6ac0afdba04a61f02860350397d2
     home: https://github.com/aws/eks-charts
@@ -142,7 +155,7 @@ entries:
     version: 1.6.3
   - apiVersion: v2
     appVersion: v2.6.1
-    created: "2023-09-24T07:06:29.248093964Z"
+    created: "2023-09-24T13:51:03.058950748Z"
     description: AWS Load Balancer Controller Helm chart for Kubernetes
     digest: 3a2345485bfd170365151235185168fa297b407e30e1ae9b4ef19f8ab812e3ff
     home: https://github.com/aws/eks-charts
@@ -168,7 +181,7 @@ entries:
     version: 1.6.2
   - apiVersion: v2
     appVersion: v2.6.1
-    created: "2023-09-24T07:06:29.246787235Z"
+    created: "2023-09-24T13:51:03.057343138Z"
     description: AWS Load Balancer Controller Helm chart for Kubernetes
     digest: af154000560baf95707516d761eb5a2d6e278e674d939a149398da49b00cf6cf
     home: https://github.com/aws/eks-charts
@@ -192,4 +205,4 @@ entries:
     urls:
     - aws-load-balancer-controller-1.6.1.tgz
     version: 1.6.1
-generated: "2023-09-24T07:06:29.178216532Z"
+generated: "2023-09-24T13:51:02.956289297Z"

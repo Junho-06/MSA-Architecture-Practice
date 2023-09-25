@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/healthcheck-path: /healthz
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}, {"HTTP":80}]'
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    kubernetes.io/ingress.class: alb
+  finalizers:
+  - ingress.k8s.aws/resources
+  name: argocd-ingress # 인그레스 이름 정하기
+  namespace: argocd    # 설치할 네임스페이스
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: argocd-server # 연결할 서비스 (이부분은 고정)
+            port:
+              number: 80 # (이부분도 고정)
+        path: /argo-cd
+        pathType: ImplementationSpecific

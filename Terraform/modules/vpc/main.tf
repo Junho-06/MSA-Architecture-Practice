@@ -13,6 +13,16 @@ module "vpc" {
   single_nat_gateway     = true
   one_nat_gateway_per_az = false
 
+  private_subnet_tags = {
+  # 이부분 에러남 이게 되야 ingress 생성 될듯
+    "kubernetes.io/role/internal-elb" = "1"
+  }
+
+  public_subnet_tags = {
+  # 이부분 에러남 이게 되야 ingress 생성 될듯
+    "kubernetes.io/role/elb" = "1"
+  }
+
   nat_gateway_tags = {
     Name = "${var.name_prefix}-nat"
   }

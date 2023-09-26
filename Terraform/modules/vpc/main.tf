@@ -14,12 +14,12 @@ module "vpc" {
   one_nat_gateway_per_az = false
 
   private_subnet_tags = {
-  # 이부분 에러남 이게 되야 ingress 생성 될듯
+  # kubernetes.io/role/internal-elb 태그 : load balancer controller 가 subnet을 찾을 수 있도록
     "kubernetes.io/role/internal-elb" = "1"
   }
 
   public_subnet_tags = {
-  # 이부분 에러남 이게 되야 ingress 생성 될듯
+  # kubernetes.io/role/elb 태그 : load balancer controller 가 subnet을 찾을 수 있도록
     "kubernetes.io/role/elb" = "1"
   }
 

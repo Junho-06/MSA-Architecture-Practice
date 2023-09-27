@@ -16,10 +16,10 @@ spec:
   rules:
   - http:
       paths:
-      - backend:
+      - path: /
+        backend:
           service:
             name: argocd-server # 연결할 서비스 (이부분은 고정)
             port:
               number: 80 # (이부분도 고정)
-        path: /*
-        pathType: ImplementationSpecific
+        pathType: Prefix

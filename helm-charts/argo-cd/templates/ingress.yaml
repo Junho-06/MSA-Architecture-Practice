@@ -21,5 +21,5 @@ spec:
             name: argocd-server # 연결할 서비스 (이부분은 고정)
             port:
               number: 80 # (이부분도 고정)
-        path: /argo-cd
+        path: /*
         pathType: ImplementationSpecific

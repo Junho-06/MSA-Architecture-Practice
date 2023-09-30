@@ -10,7 +10,7 @@ locals {
   helm-repository = "https://junho-06.github.io/MSA-Architecture-Practice"
 
   argocd-name      = "argo-cd"
-  argocd-version   = "0.1.16"
+  argocd-version   = "0.1.17"
   argocd-namespace = "argocd"
 
   application-name      = "application"

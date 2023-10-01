@@ -41,7 +41,7 @@ spec:
       {{- end }}
       containers:
         - name:  {{ $fullname }}
-          image: {{ .Values.imageRegistry }}/{{ .Values.name }}:{{ .Values.imageTag }}
+          image: {{ .Values.imageRegistry }}/msa_ecr_{{ .Values.name }}_registry:{{ .Values.imageTag }}
           imagePullPolicy: Always
           ports:
             - containerPort: {{ .Values.containerPort }}

@@ -27,7 +27,7 @@ spec:
         targetRevision: {{ .Values.spec.source.targetRevision }}
         helm:
           values: |-
-            name: 'msa_ecr_{{ config.service_name }}_registry'
+            name: '{{`{{ config.service_name }}`}}'
             imageRegistry: '{{ .Values.spec.source.imageRegistry }}'
             imageTag: '{{`{{ config.imageTag }}`}}'
             containerPort: '{{`{{ config.containerPort }}`}}'

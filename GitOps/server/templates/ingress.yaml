@@ -1,5 +1,3 @@
-{{- $fullname := (printf "%s" .Values.name) }}
-
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -19,9 +17,9 @@ spec:
   - http:
       paths:
       - path: /{{ .Values.name }}
-        backend:
-          service: {{ .Values.name }}
-            name: 
-            port:
-              number: 80 # (이부분도 고정)
         pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.name }}
+            port:
+              number: 80

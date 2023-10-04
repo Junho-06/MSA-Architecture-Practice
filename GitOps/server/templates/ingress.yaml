@@ -10,16 +10,23 @@ metadata:
     kubernetes.io/ingress.class: alb
   finalizers:
   - ingress.k8s.aws/resources
-  name: {{ .Values.name }}-ingress
+  name: application-ingress
   namespace: default
 spec:
   rules:
   - http:
       paths:
-      - path: /{{ .Values.name }}
+      - path: /go
         pathType: Prefix
         backend:
           service:
-            name: {{ .Values.name }}
+            name: go
+            port:
+              number: 80
+      - path: /spring
+        pathType: Prefix
+        backend:
+          service:
+            name: spring
             port:
               number: 80

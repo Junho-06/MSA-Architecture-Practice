@@ -10,7 +10,7 @@ metadata:
     kubernetes.io/ingress.class: alb
   finalizers:
   - ingress.k8s.aws/resources
-  name: application-ingress
+  name: {{ .Values.name }}-ingress
   namespace: default
 spec:
   rules:

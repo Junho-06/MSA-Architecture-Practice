@@ -1,0 +1,27 @@
+{{- $fullname := (printf "%s" .Values.name) }}
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    kubernetes.io/ingress.class: alb
+  finalizers:
+  - ingress.k8s.aws/resources
+  name: application-ingress
+  namespace: default
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /{{ .Values.name }}
+        backend:
+          service: {{ .Values.name }}
+            name: 
+            port:
+              number: 80 # (이부분도 고정)
+        pathType: Prefix

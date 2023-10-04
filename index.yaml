@@ -3,7 +3,17 @@ entries:
   application:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-10-04T03:01:49.227303454Z"
+    created: "2023-10-04T03:19:08.710863383Z"
+    description: argo-cd study application
+    digest: 34c7e31473562b9db4fc511325aaa004c256683d1b12f8a1806dc6b5da87d196
+    name: application
+    type: application
+    urls:
+    - application-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-10-04T03:19:08.710632881Z"
     description: argo-cd study application
     digest: 9dcc156a279f2dd349330de21f83c0f0c6c2a65b5c2ffd87c4c857f443796b0c
     name: application
@@ -13,7 +23,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-10-04T03:01:49.227105651Z"
+    created: "2023-10-04T03:19:08.710255677Z"
     description: argo-cd study application
     digest: 7254ce2ab84c2091b6ea6943aa28ffd7fda2d307200c5cb85a4f912fa0726abf
     name: application
@@ -23,7 +33,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-10-04T03:01:49.226897048Z"
+    created: "2023-10-04T03:19:08.709993474Z"
     description: argo-cd study application
     digest: 73e7a849cae82f254ab95f61a1855d7a2b9d48c28adc9d7c5db9a1f17483735c
     name: application
@@ -33,7 +43,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-10-04T03:01:49.226667344Z"
+    created: "2023-10-04T03:19:08.709726571Z"
     description: argo-cd study application
     digest: ff3923f31376acdb044987116afc6a2bb89914b3daff40dcc39053d02c9b70ce
     name: application
@@ -44,7 +54,7 @@ entries:
   argo-cd:
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.507569547Z"
+    created: "2023-10-04T03:19:08.920969286Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -57,7 +67,7 @@ entries:
     version: 0.1.22
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.494360345Z"
+    created: "2023-10-04T03:19:08.907225042Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -70,7 +80,7 @@ entries:
     version: 0.1.21
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.481583549Z"
+    created: "2023-10-04T03:19:08.894962914Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -83,7 +93,7 @@ entries:
     version: 0.1.20
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.454276031Z"
+    created: "2023-10-04T03:19:08.870206654Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -96,7 +106,7 @@ entries:
     version: 0.1.19
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.426537106Z"
+    created: "2023-10-04T03:19:08.85644271Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -109,7 +119,7 @@ entries:
     version: 0.1.18
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.407470314Z"
+    created: "2023-10-04T03:19:08.84412038Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -122,7 +132,7 @@ entries:
     version: 0.1.17
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.394595217Z"
+    created: "2023-10-04T03:19:08.83165895Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -135,7 +145,7 @@ entries:
     version: 0.1.16
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.374024301Z"
+    created: "2023-10-04T03:19:08.818679314Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -148,7 +158,7 @@ entries:
     version: 0.1.15
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.353775491Z"
+    created: "2023-10-04T03:19:08.806196183Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -161,7 +171,7 @@ entries:
     version: 0.1.14
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.326691776Z"
+    created: "2023-10-04T03:19:08.794206957Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -174,7 +184,7 @@ entries:
     version: 0.1.13
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.314562391Z"
+    created: "2023-10-04T03:19:08.781827727Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -187,7 +197,7 @@ entries:
     version: 0.1.12
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.292503953Z"
+    created: "2023-10-04T03:19:08.768865991Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -200,7 +210,7 @@ entries:
     version: 0.1.11
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.277228419Z"
+    created: "2023-10-04T03:19:08.755949656Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -213,7 +223,7 @@ entries:
     version: 0.1.10
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.614980293Z"
+    created: "2023-10-04T03:19:09.023542662Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -226,7 +236,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.59654651Z"
+    created: "2023-10-04T03:19:09.007075389Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -239,7 +249,7 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.577368717Z"
+    created: "2023-10-04T03:19:08.991620027Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -252,7 +262,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.558892934Z"
+    created: "2023-10-04T03:19:08.977631781Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -265,7 +275,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.544559314Z"
+    created: "2023-10-04T03:19:08.963016127Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -278,7 +288,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.532213425Z"
+    created: "2023-10-04T03:19:08.951565307Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -291,7 +301,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.519877136Z"
+    created: "2023-10-04T03:19:08.936702651Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -304,7 +314,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.469031957Z"
+    created: "2023-10-04T03:19:08.882614984Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -317,7 +327,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.263325106Z"
+    created: "2023-10-04T03:19:08.743345424Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -330,7 +340,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: v2.3.4
-    created: "2023-10-04T03:01:49.241629273Z"
+    created: "2023-10-04T03:19:08.727250255Z"
     dependencies:
     - name: argo-cd
       repository: https://argoproj.github.io/argo-helm
@@ -344,7 +354,7 @@ entries:
   aws-load-balancer-controller:
   - apiVersion: v2
     appVersion: v2.6.1
-    created: "2023-10-04T03:01:49.620495077Z"
+    created: "2023-10-04T03:19:09.028981319Z"
     description: AWS Load Balancer Controller Helm chart for Kubernetes
     digest: e10cacdbb97dd733a123021c01c8593684828689515fb48e9b3addebdac019ed
     home: https://github.com/aws/eks-charts
@@ -370,7 +380,7 @@ entries:
     version: 1.6.4
   - apiVersion: v2
     appVersion: v2.6.1
-    created: "2023-10-04T03:01:49.619140457Z"
+    created: "2023-10-04T03:19:09.027654505Z"
     description: AWS Load Balancer Controller Helm chart for Kubernetes
     digest: 03e25a71039748b38726f5341deb513ef09e6ac0afdba04a61f02860350397d2
     home: https://github.com/aws/eks-charts
@@ -396,7 +406,7 @@ entries:
     version: 1.6.3
   - apiVersion: v2
     appVersion: v2.6.1
-    created: "2023-10-04T03:01:49.617759335Z"
+    created: "2023-10-04T03:19:09.02620499Z"
     description: AWS Load Balancer Controller Helm chart for Kubernetes
     digest: 3a2345485bfd170365151235185168fa297b407e30e1ae9b4ef19f8ab812e3ff
     home: https://github.com/aws/eks-charts
@@ -422,7 +432,7 @@ entries:
     version: 1.6.2
   - apiVersion: v2
     appVersion: v2.6.1
-    created: "2023-10-04T03:01:49.616392714Z"
+    created: "2023-10-04T03:19:09.024849076Z"
     description: AWS Load Balancer Controller Helm chart for Kubernetes
     digest: af154000560baf95707516d761eb5a2d6e278e674d939a149398da49b00cf6cf
     home: https://github.com/aws/eks-charts
@@ -446,4 +456,4 @@ entries:
     urls:
     - aws-load-balancer-controller-1.6.1.tgz
     version: 1.6.1
-generated: "2023-10-04T03:01:49.226231037Z"
+generated: "2023-10-04T03:19:08.707800951Z"

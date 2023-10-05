@@ -6,6 +6,6 @@ config:
   serviceAccount: null
   replicas: 1
   service_name: go
-  imageTag: 20f9d9519658d7d69d377aeb4901e8867d4fbd4d
+  imageTag: aebe713785fa8d4e180877574d6ad7d93c784460
   containerPort: 8080
   prefix: /go
